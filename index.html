@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:a="http://ajax.org/2005/aml" skipParse="true">
+    <head profile="http://www.w3.org/2005/10/profile">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>project0 - Cloud9</title>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <script type="text/javascript">
+        //<![CDATA[
+            if ("")
+                document.title += " Local";
+        //]]>
+        </script>
+        <link rel="icon" type="image/gif" href="https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/favicon.ico" />
+
+        <link rel="stylesheet" type="text/css" href="https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/loading.css" />
+
+        <script type="text/javascript">
+            function createSplash() {
+                var msg = (function () {
+                    var msgs = [
+                        "It will be just as you left it"
+                    ];
+                    return msgs[Math.random() * msgs.length | 0];
+                }());
+                    
+                var loadingIde = document.createElement("div");
+                loadingIde.setAttribute("id", "loadingide");
+                
+                var header = document.createElement("div");
+                header.className = "header";
+                var footer = document.createElement("div");
+                footer.className = "footer";
+                // yes this is bad
+                footer.innerHTML = '<a href="https://docs.c9.io">Documentation</a> | <a href="http://status.c9.io">Server Status</a> | <a href="http://support.c9.io">Support</a>';
+                
+                var content = document.createElement("div");
+                content.className = "loading-progress";
+                content.innerHTML = '<div id="progress-msg">Preparing your workspace <span id="dots"></div></div><div class="loading-seperator"></div><div class="loading-msg"></div>';
+                content.querySelector(".loading-msg").textContent = msg;
+
+                loadingIde.appendChild(header);
+                loadingIde.appendChild(content);
+                loadingIde.appendChild(footer);
+                document.documentElement.appendChild(loadingIde);
+                
+                var dots = document.getElementById("dots");
+                var cnt  = 0;
+                window.dotsAnim = setInterval(function () {
+                    dots.textContent = "...".split("").slice(0, (++cnt)%4).join("");
+                }, 500);
+            }
+            function clearSplash () {
+                // stop the dots animation
+                clearInterval(window.dotsAnim);
+                
+                var loadingDiv = document.getElementById("loadingide");
+                if (loadingDiv)
+                    document.documentElement.removeChild(loadingDiv);
+            }
+            createSplash();
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/style.css" />
+
+        
+        <script type="text/javascript" src="https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/require.js"></script>
+        
+        <script type="text/javascript">
+        //<![CDATA[
+
+            window.cloud9config = {
+                startdate: new Date(),
+                davPrefix: "/rhyanbossy/project0/workspace",
+                workspaceDir: "/var/lib/stickshift/533b20ac500446e19f000003/app-root/data/633503",
+                debug: "",
+                sessionId: "weCwN7GPWPX2I1ncooxT91Os.raY5ZpCHLuo3FihXbWcadpiZea9/Aypsx/RI3CTcD70",
+                workspaceId: "user/rhyanbossy/project0",
+                runners: ["python","apache","ruby","php","node","node-debug"],
+                name: "",
+                uid: "anon_weCwN7GPWPX2I1ncooxT91Os.raY5ZpCHLuo3FihXbWcadpiZea9/Aypsx/RI3CTcD70",
+                pid: 4188,
+                readonly: true,
+                projectName: "project0",
+                version: "",
+                workerUrl: "/2.2.19-49397623/static",
+                staticUrl: "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static",
+                smithIo: "{\"prefix\":\"/rhyanbossy/project0/smith.io-ide\",\"port\":443}",
+                hosted: true,
+                local: "",
+                settings: "defaults",
+                collab : true,
+                packed: true,
+                packedName: "openshift.min.js",
+                _csrf: "X780FK5EXcoSoeF6PQhKqOEK"
+            };
+
+            <!--Segment.io-->
+            var analytics=analytics||[];(function(){var e=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group"],t=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)analytics[e[n]]=t(e[n])})(),analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
+            analytics.load("tddvoflw5e");
+
+            analytics.identify("anon_weCwN7GPWPX2I1ncooxT91Os.raY5ZpCHLuo3FihXbWcadpiZea9/Aypsx/RI3CTcD70", {});
+
+            window.onerror = function(m, u, l) {
+                if (m.match(/Load timeout for modules:/) || m.match(/Script error/))
+                    return;
+                clearSplash();
+            };
+
+            // prevent console messages from crashing our app!
+            if (typeof window["console"] == "undefined") {
+                var K = function() {};
+                window.console = {log:K,debug:K,dir:K,trace:K,error:K,warn:K,profileStart:K,profileEnd:K};
+            }
+
+            if (!cloud9config.packed) {
+                var RELEASE = "release";
+                var DEBUG   = "debug";
+                var FILES   = "files";
+
+                var VERSION = window.cloud9config.debug ? DEBUG : RELEASE;
+
+                var apfLoc = "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/apf-packaged/apf_" + VERSION + ".js";
+            }
+            else {
+               var apfLoc = "";
+            }
+            
+            var config = {"waitSeconds":60,"baseUrl":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static","paths":{"ace":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ace/lib/ace","apf":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/apf","treehugger":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/treehugger/lib/treehugger","debug":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/v8debug/lib/v8debug","v8debug":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/v8debug/lib/v8debug","core":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/core","ext":"https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext"},"packages":[{"name":"engine.io","location":"engine.io","main":"engine.io.js"},{"name":"smith.io","location":"smith.io","main":"client.js"},{"name":"smith","location":"smith","main":"smith.js"},{"name":"msgpack-js","location":"msgpack-js","main":"msgpack.js"},{"name":"jQuery","location":"jQuery","main":"jQuery.js"}]}; 
+
+            // configure text plugin to use XHR for crossorigin requests instead of falling back to .js files
+            config.config = {text: {useXhr: function(){return true;}}};
+
+            require(config, [apfLoc], function(){
+
+                if (!cloud9config.packed) {
+                    main();
+                }
+                else {
+                    var packedFile = "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/" + (cloud9config.packedName || "c9os.min.js");
+                    require([packedFile], main);
+                }
+                
+                preloaderImgs();
+            });
+            
+            function main() {
+                var list = ["core/ide", "core/ext", "core/util", 
+                "core/settings", "ext/main/main", "ext/editors/editors",
+                "ace/editor"];
+                require(list, function(ide, ext, util){
+                    var plugins = ["ext/filesystem/filesystem","ext/settings/settings","ext/editors/editors","ext/themes/themes","ext/themes_default/themes_default","ext/panels/panels","ext/dockpanel/dockpanel","ext/openfiles/openfiles","ext/tree/tree","ext/recentfiles/recentfiles","ext/gotofile/gotofile","ext/clipboard/clipboard","ext/gotoline/gotoline","ext/preview/preview","ext/help/help","ext/code/code","ext/statusbar/statusbar","ext/imgview/imgview","ext/console/console","ext/keybindings_default/keybindings_default","ext/revisions/revisions","ext/menus/menus","ext/tooltip/tooltip","ext/sidebar/sidebar","ext/filelist/filelist","ext/beautify/beautify","ext/offline/offline","ext/stripws/stripws","ext/zen/zen","ext/codecomplete/codecomplete","ext/vim/vim","ext/guidedtour/guidedtour","ext/quickstart/quickstart","ext/jslanguage/jslanguage","ext/logiql/logiql","ext/csslanguage/csslanguage","ext/htmllanguage/htmllanguage","ext/linereport/linereport","ext/linereport_php/linereport_php","ext/linereport_python/linereport_python","ext/closeconfirmation/closeconfirmation","ext/codetools/codetools","ext/colorpicker/colorpicker","ext/autosave/autosave","ext/supportticket/supportticket","ext/anims/anims","ext/gitblame/gitblame","ext/jsinfer/jsinfer","ext/jsonalyzer/jsonalyzer","ext/collaborate/collaborate","ext/readonly/readonly","ext/ot/ot","ext/auth/auth","ext/ganalytics/ganalytics","ext/permissions/permissions","ext/proxymessage/proxymessage","ext/upgrade/upgrade","ext/openshift/openshift","ext/activityping/activityping","ext/lftp/lftp"];
+
+                    // if you pass `force=true` into the querystring, then
+                    // we bypass the browser check
+                    if (window.cloud9config.hosted && !window.location.search.match(/\bforce\=true\b/)) {
+                        // otherwise, ask apf
+                        if (apf.isIE) {
+                            // redirect to the notsupported page
+                            var ref = encodeURIComponent(window.location.pathname + window.location.search);
+                            window.location.href = "/site/notsupported.html?ref=" + ref;
+                        }
+                    }
+
+                    var aceConfig = require("ace/config");
+
+                    aceConfig.set("packaged", true);
+                    aceConfig.set("workerPath", "/2.2.19-49397623/static/ace/worker");
+                    aceConfig.set("modePath", "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ace/mode");
+                    aceConfig.set("themePath", "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ace/theme");
+                    aceConfig.set("basePath", "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ace/build");
+
+                    //Load extensions
+                    apf.addEventListener("load", function(){
+                        require(plugins, function() {
+                            loadAndBegin(ide, plugins);
+                        });
+                    });
+                });
+            }
+
+            function loadAndBegin(ide, plugins) {
+                ide.dispatchEvent("extload", {modules: plugins});
+
+                cloud9config.totalTime = new Date() - cloud9config.startdate;
+                console.log("Total Load Time " 
+                    + (cloud9config.totalTime) + "ms");
+
+                clearSplash();
+
+                ide.addEventListener("$event.extload", function(cb){
+                    cb();
+                });
+            }
+
+            function preloaderImgs() {
+                var preloadImgs = [
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/bg-overlay.png",
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/cover-heaeder.png",
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/cover-logo.png",
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/panelBg.png",
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/editor_tab.png",
+                    "https://d6ff1xmuve0sx.cloudfront.net/2.2.19-49397623/static/ext/main/style/images/cloud9logo_transparent.png"
+                ];
+                if (document.images) {
+                    var img;
+                    for(var i = 0; i < preloadImgs.length; i++) {
+                        img = new Image();
+                        img.src = preloadImgs[i];
+                    }
+                }
+            }
+        //]]>
+        </script>
+        
+    </head>
+    <body>
+    </body>
+</html>
